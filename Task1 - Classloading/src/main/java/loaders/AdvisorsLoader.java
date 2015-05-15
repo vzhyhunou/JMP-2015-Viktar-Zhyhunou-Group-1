@@ -3,12 +3,14 @@ package loaders;
 import interfaces.WeatherAdvisor;
 import org.apache.log4j.Logger;
 
-import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 /**
  * @author Natallia_Rakitskaya
@@ -19,31 +21,33 @@ public class AdvisorsLoader {
 
     private List<WeatherAdvisor> advisors = new ArrayList();
 
-    public AdvisorsLoader() {
-        File folder = new File("dynaclasses");
-        if (folder.exists() && folder.isDirectory()) {
-            File[] listOfFiles = folder.listFiles();
-            Map<String, File> fileMap = new HashMap();
-            for (File file : listOfFiles) {
-                StringBuilder builder = new StringBuilder(file.getName());
-                builder.delete(builder.lastIndexOf(".class"), builder.length());
-                fileMap.put(builder.toString(), file);
-            }
-            initAdvisors(new MyClassLoader(fileMap), fileMap.keySet());
-        } else {
-            LOGGER.warn(String.format("Directory \"dynaclasses\" does not exist!"));
-        }
-    }
+    public AdvisorsLoader(){
+        try {
+            JarFile jarFile = new JarFile("dynaclasses/advisors_functionality-1.0-SNAPSHOT.jar");
+            Enumeration en = jarFile.entries();
 
-    private void initAdvisors(ClassLoader loader, Set<String> classSet) {
-        for (String className: classSet) {
-            try {
-                Class<?> clazz = loader.loadClass(className);
-                WeatherAdvisor advisor = (WeatherAdvisor) clazz.newInstance();
-                advisors.add(advisor);
-            } catch (Exception e) {
-                LOGGER.warn(e.getMessage());
+            URL[] urls = {new URL("jar:file:" + "dynaclasses" + "!/")};
+            URLClassLoader cl = URLClassLoader.newInstance(urls);
+
+            while (en.hasMoreElements()) {
+                JarEntry je = (JarEntry) en.nextElement();
+                if(je.isDirectory() || !je.getName().endsWith(".class")){
+                    continue;
+                }
+
+                String className = je.getName().substring(0, je.getName().length() - 6);
+                className = className.replace('/', '.');
+                try {
+                    Class c = cl.loadClass(className);
+                    WeatherAdvisor advisor = (WeatherAdvisor) c.newInstance();
+                    advisors.add(advisor);
+                } catch (Exception e) {
+                    LOGGER.warn(e.getMessage());
+                }
             }
+        }
+        catch(IOException e){
+            LOGGER.warn(String.format("Directory \"dynaclasses\" with specified jar does not exist!"));
         }
     }
 

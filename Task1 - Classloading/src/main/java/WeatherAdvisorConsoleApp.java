@@ -18,6 +18,10 @@ public class WeatherAdvisorConsoleApp {
         start();
     }
 
+    public static void main(String[] args) {
+        new WeatherAdvisorConsoleApp();
+    };
+
     private void start() {
         try {
             System.out.println("Welcome to weather advisor :)");
