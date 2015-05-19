@@ -1,3 +1,5 @@
+import interfaces.WeatherAdvisor;
+
 /**
  * @author Natallia_Rakitskaya
  */
