@@ -20,7 +20,7 @@ public class WeatherAdvisorConsoleApp {
 
     public static void main(String[] args) {
         new WeatherAdvisorConsoleApp();
-    };
+    }
 
     private void start() {
         try {
@@ -54,7 +54,7 @@ public class WeatherAdvisorConsoleApp {
             System.out.println("Your are choosing: ");
             String inputValue = reader.readLine();
             try {
-                return Integer.valueOf(inputValue.trim()).intValue();
+                return Integer.parseInt(inputValue.trim());
             }
             catch (NumberFormatException e) {
                 System.out.println("Invalid input value! Please, try again...");

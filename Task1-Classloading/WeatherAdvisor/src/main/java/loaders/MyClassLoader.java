@@ -15,12 +15,7 @@ public class MyClassLoader extends ClassLoader{
     private Map<String, JarEntry> fileMap;
     private JarFile jarFile;
 
-    public MyClassLoader(ClassLoader parent) {
-        super(parent);
-    }
-
     public MyClassLoader(JarFile jarFile, Map<String, JarEntry> fileMap) {
-        this(MyClassLoader.class.getClassLoader());
         this.jarFile = jarFile;
         this.fileMap = fileMap;
     }
