@@ -18,6 +18,10 @@ public class UserServiceBean implements UserServiceLocal {
 
     @Override
     public void addUser(User user) {
+        String login = user.getLogin();
+        if (findUserByLogin(login)!=null) {
+            throw new UserManagerException(String.format("User with login %s already exists!!", login));
+        }
         entityManager.persist(user);
     }
 
