@@ -1,10 +1,13 @@
 package service;
 
+import exception.UserManagerException;
 import model.User;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  * Created by Natallia_Rakitskaya on 09.06.2015.
