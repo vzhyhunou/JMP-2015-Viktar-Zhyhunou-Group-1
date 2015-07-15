@@ -1,15 +1,11 @@
-package dao;
+package service;
 
 import model.Project;
 
 /**
  * Created by Natallia_Rakitskaya.
  */
-public interface ProjectDao {
-
-    public void begin();
-
-    public void commit();
+public interface ProjectService {
 
     public void createProject(Project project);
 
@@ -20,4 +16,5 @@ public interface ProjectDao {
     public void updateProject(Project project);
 
     public void assignEmployee(Long projectId, Long employeeId);
+
 }

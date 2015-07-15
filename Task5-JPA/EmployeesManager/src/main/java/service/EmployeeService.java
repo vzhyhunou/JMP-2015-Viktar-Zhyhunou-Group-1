@@ -1,15 +1,13 @@
-package dao;
+package service;
 
+import dao.EmployeeDao;
+import dao.EmployeeDaoImpl;
 import model.Employee;
 
 /**
  * Created by Natallia_Rakitskaya.
  */
-public interface EmployeeDao {
-
-    public void begin();
-
-    public void commit();
+public interface EmployeeService {
 
     public void createEmployee(Employee employee);
 

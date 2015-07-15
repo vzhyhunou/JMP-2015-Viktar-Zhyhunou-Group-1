@@ -1,15 +1,11 @@
-package dao;
+package service;
 
 import model.Unit;
 
 /**
  * Created by Natallia_Rakitskaya.
  */
-public interface UnitDao {
-
-    public void begin();
-
-    public void commit();
+public interface UnitService {
 
     public void createUnit(Unit unit);
 
