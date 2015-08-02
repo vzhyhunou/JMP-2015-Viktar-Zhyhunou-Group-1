@@ -21,7 +21,6 @@ public class UserInitializer {
      */
     @Autowired
     public UserInitializer(UserService userService) {
-        super();
         this.userService = userService;
     }
     

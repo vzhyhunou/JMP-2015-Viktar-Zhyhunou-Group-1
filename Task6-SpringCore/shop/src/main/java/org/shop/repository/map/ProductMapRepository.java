@@ -63,7 +63,6 @@ public class ProductMapRepository extends AbstractMapRepository<Product> impleme
         private String name;
 
         private ProductByNamePredicate(String name) {
-            super();
             this.name = name;
         }
 

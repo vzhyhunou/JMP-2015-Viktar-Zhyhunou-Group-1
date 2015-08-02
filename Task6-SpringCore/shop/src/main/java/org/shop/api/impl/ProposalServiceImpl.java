@@ -26,7 +26,6 @@ public class ProposalServiceImpl implements ProposalService {
     
     @Autowired
     public ProposalServiceImpl(ProposalRepository repository) {
-        super();
         this.repository = repository;
     }
     

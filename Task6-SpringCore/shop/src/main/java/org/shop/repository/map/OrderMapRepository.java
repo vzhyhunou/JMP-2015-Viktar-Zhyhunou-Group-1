@@ -67,7 +67,6 @@ public class OrderMapRepository extends AbstractMapRepository<Order> implements 
          * @param userId the user id
          */
         private OrderByUserPredicate(Long userId) {
-            super();
             this.userId = userId;
         }
 

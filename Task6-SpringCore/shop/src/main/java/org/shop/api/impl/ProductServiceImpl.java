@@ -15,7 +15,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     public ProductServiceImpl(ProductRepository repository) {
-        super();
         this.repository = repository;
     }
     

@@ -23,7 +23,6 @@ public final class ProductInitializer {
      */
     @Autowired
     public ProductInitializer(ProductService productService) {
-        super();
         this.productService = productService;
     }
     

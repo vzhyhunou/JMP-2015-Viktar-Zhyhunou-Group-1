@@ -39,7 +39,6 @@ public class ItemMapRepository extends AbstractMapRepository<Item> implements It
         private Long orderId;
         
         private ItemByOrderPredicate(Long orderId) {
-            super();
             this.orderId = orderId;
         }
 

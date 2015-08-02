@@ -36,7 +36,6 @@ public class AbstractMapRepository<T extends Entity> {
      * @param initialSequence the initial sequence value
      */
     public AbstractMapRepository(long initialSequence) {
-        super();
         this.sequence = initialSequence;
     }
 

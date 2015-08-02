@@ -55,7 +55,6 @@ public class ProposalMapRepository extends AbstractMapRepository<Proposal> imple
         private Long productId;
         
         private ProposalByProductPredicate(Long productId) {
-            super();
             this.productId = productId;
         }
 
@@ -75,7 +74,6 @@ public class ProposalMapRepository extends AbstractMapRepository<Proposal> imple
         private Long sellerId;
 
         private ProposalBySellerPredicate(Long sellerId) {
-            super();
             this.sellerId = sellerId;
         }
 

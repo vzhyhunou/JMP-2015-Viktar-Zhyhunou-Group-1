@@ -21,7 +21,6 @@ public class ItemServiceImpl implements ItemService {
      */
     @Autowired
     public ItemServiceImpl(ItemRepository repository) {
-        super();
         this.repository = repository;
     }
 
