@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.collections.Predicate;
 import org.shop.data.Order;
 import org.shop.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -16,11 +17,11 @@ import org.springframework.stereotype.Repository;
 @Repository("orderRepository")
 public class OrderMapRepository extends AbstractMapRepository<Order> implements OrderRepository {
 
-    @Value("${repository.order.pk}")
-    public void setSequence(long sequence) {
+    @Autowired
+    public OrderMapRepository(@Value("${repository.order.pk}") long sequence){
         super.sequence = sequence;
     }
-    
+
     /* (non-Javadoc)
      * @see org.shop.repository.OrderRepository#getOrderById(java.lang.Long)
      */
