@@ -15,12 +15,12 @@ public class Client {
         arrlist.push(40);
         System.out.println(arrlist.pop());
 
-        ListToStackAdapter<Integer> arrlist1 = new ListToStackAdapter<>(new Vector<Integer>());
-        arrlist1.push(15);
-        arrlist1.push(22);
+        ListToStackAdapter<String> arrlist1 = new ListToStackAdapter<>(new Vector<String>());
+        arrlist1.push("abc");
+        arrlist1.push("def");
         System.out.println(arrlist1.pop());
-        arrlist1.push(30);
-        arrlist1.push(40);
+        arrlist1.push("xyz");
+        arrlist1.push("www");
         System.out.println(arrlist1.pop());
 
     }
