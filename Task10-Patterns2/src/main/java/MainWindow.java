@@ -9,7 +9,7 @@ import java.awt.event.WindowEvent;
  * Created by Natallia_Rakitskaya.
  */
 public class MainWindow extends JFrame implements ActionListener{
-    JButton Quit;
+    private JButton Quit;
 
     public MainWindow() {
         super("Decorator example");

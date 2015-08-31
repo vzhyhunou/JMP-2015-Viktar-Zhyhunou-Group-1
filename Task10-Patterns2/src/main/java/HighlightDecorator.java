@@ -8,8 +8,8 @@ import java.awt.event.MouseEvent;
  */
 
 public class HighlightDecorator extends Decorator {
-    boolean mouse_over;
-    JComponent thisComp;
+    private boolean mouse_over;
+    private JComponent thisComp;
 
     public HighlightDecorator(JComponent c) {
         super(c);
